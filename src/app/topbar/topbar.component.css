@@ -1,0 +1,9 @@
+mat-card{
+  display: flex;
+  width: 50%;
+  margin: 50px auto;
+}
+mat-card mat-list {
+  width: 100%;
+  cursor: pointer;
+}

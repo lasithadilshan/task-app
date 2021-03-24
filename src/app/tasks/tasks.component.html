@@ -1,0 +1,40 @@
+<!-- Create Task-->
+<mat-card>
+
+  <form [formGroup]="taskForm" (ngSubmit)="createTask()">
+    <mat-form-field>
+      <mat-label>Task Title</mat-label>
+      <input type="text" matInput placeholder="Task Title" required formControlName="title"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Task Description</mat-label>
+      <input type="text" matInput placeholder="Task Description" required formControlName="description" />
+    </mat-form-field>
+
+    <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="!taskForm.valid"
+    >Submit</button>
+  </form>
+
+</mat-card> <!-- End of Create Task-->
+
+<!-- Tasks List -->
+<mat-card>
+
+  <mat-list>
+    <mat-list-item *ngFor="let task of tasks">
+      <mat-icon mat-list-icon>task</mat-icon>
+
+      <div mat-line>{{ task.title }}</div>
+      <div mat-line>{{ task.description }}</div>
+
+      <mat-icon (click)="editTask(task)">edit</mat-icon>
+      <mat-icon (click)="deleteTask(task)">delete</mat-icon>
+    </mat-list-item>
+  </mat-list>
+
+</mat-card> <!-- End of Tasks List-->
